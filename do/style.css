@@ -1,0 +1,21 @@
+body {
+    background-color: cornflowerblue;
+}
+
+.board {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.card {
+    width: 150px;
+    height: 200px;
+    /* relative -> 기준점 */
+    position: relative;
+}
+
+.front,
+.back {
+    /* absolute -> 부모의 relative를 따라감 */
+    position: absolute;
+}
