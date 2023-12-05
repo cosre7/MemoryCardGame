@@ -1,4 +1,14 @@
+/* 기존에 브라우저에 존재하는 기본값 변경 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: cornflowerblue;
 }
 
@@ -15,6 +25,7 @@ body {
     position: relative;
     transform-style: preserve-3d;
     transition: transform 0.5s;
+    margin: 5px;
 }
 
 /* card가 눌렸을 때 실행될 css */
