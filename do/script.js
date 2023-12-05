@@ -7,6 +7,7 @@ const cards = document.querySelectorAll(".card");
 const orderList = [0, 1, 2, 3];
 let firstCard, secondCard;
 let hasFlippedCard = false;
+let lockBoard = false;
 
 function shuffleArr(arr) {
     arr.forEach((_, index) => {
@@ -23,15 +24,26 @@ function shuffle() {
 }
 
 function unflipCards() {
+    lockBoard = true;
     setTimeout(() => {
         firstCard.classList.remove('flip');
         secondCard.classList.remove('flip');
+        lockBoard = false;
     }, 1200);
 }
 
 function disabledCards() {
     firstCard.removeEventListener("click", flipCard);
     secondCard.removeEventListener("click", flipCard);
+
+    resetBoard();
+}
+
+function resetBoard() {
+    hasFlippedCard = false;
+    lockBoard = false;
+    firstCard = null;
+    secondCard = null;
 }
 
 function checkForMatch() {
@@ -47,6 +59,10 @@ function checkForMatch() {
 }
 
 function flipCard() {
+    if (lockBoard) return;
+
+    if (this === firstCard) return;
+
     this.classList.add('flip');
     // 기존에 뒤집힌 카드가 없을 때 -> 첫 번째 카드인 경우
     if (!hasFlippedCard) { 
