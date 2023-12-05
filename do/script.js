@@ -78,6 +78,8 @@ function flipCard() {
     checkForMatch();
 }
 
+shuffle();
+
 cards.forEach((card) => {
     card.addEventListener("click", flipCard);
 });
