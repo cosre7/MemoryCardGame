@@ -29,7 +29,7 @@ body {
 }
 
 /* card가 눌렸을 때 실행될 css */
-.card:active {
+.card.flip {
     transform: rotateY(180deg);
 }
 

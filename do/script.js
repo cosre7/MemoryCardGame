@@ -22,4 +22,10 @@ function shuffle() {
     })
 }
 
-shuffle();
+function flipCard(e) {
+    this.classList.add('flip');
+}
+
+cards.forEach((card) => {
+    card.addEventListener("click", flipCard);
+});
